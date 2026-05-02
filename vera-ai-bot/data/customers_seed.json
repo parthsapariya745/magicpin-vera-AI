@@ -1,0 +1,14 @@
+[
+  {
+    "id": "c1",
+    "name": "Alice",
+    "type": "repeat",
+    "last_visit_days_ago": 10
+  },
+  {
+    "id": "c2",
+    "name": "Bob",
+    "type": "inactive",
+    "last_visit_days_ago": 60
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "type": "high_search_demand",
+    "description": "Lots of users are searching for this category right now."
+  },
+  {
+    "type": "low_conversion",
+    "description": "Users are viewing the profile but not buying."
+  },
+  {
+    "type": "inactive_customers",
+    "description": "A group of customers hasn't visited in over 30 days."
+  }
+]

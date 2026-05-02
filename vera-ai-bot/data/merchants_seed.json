@@ -1,0 +1,23 @@
+[
+  {
+    "id": "m1",
+    "name": "The Great Coffee Shop",
+    "category": "restaurants",
+    "rating": 4.8,
+    "location": "Downtown"
+  },
+  {
+    "id": "m2",
+    "name": "Style & Grace Salon",
+    "category": "salons",
+    "rating": 4.5,
+    "location": "Uptown"
+  },
+  {
+    "id": "m3",
+    "name": "Healthy Smile Clinic",
+    "category": "clinics",
+    "rating": 4.9,
+    "location": "Suburbs"
+  }
+]
