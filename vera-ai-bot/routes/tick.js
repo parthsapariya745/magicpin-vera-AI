@@ -16,23 +16,21 @@ router.post('/', async (req, res, next) => {
       const triggerContext = global.contexts.trigger.get(trigger_id);
       
       for (const [merchant_id, merchantContext] of global.contexts.merchant.entries()) {
-        if (candidateTasks.length >= 20) break;
+        if (candidateTasks.length >= 5) break;
         
         // Simple heuristic: if the trigger specifically mentions a category that doesn't match the merchant, skip it.
         const triggerStr = String(trigger_id).toLowerCase();
-        const categoryStr = String(merchantContext?.payload?.identity?.category || "").toLowerCase();
+        const categoryStr = String(merchantContext?.payload?.category_slug || merchantContext?.payload?.identity?.category_slug || "").toLowerCase();
         
-        if (categoryStr && triggerStr.includes('_') && !triggerStr.includes(categoryStr)) {
-            // E.g. trigger: "trg_research_digest_dentists", category: "salons" -> skip
-            // Note: This is a fast heuristic, so we check if the category word is in the trigger ID.
+        if (categoryStr && triggerStr.includes('_')) {
             if (['dentists', 'salons', 'restaurants', 'gyms', 'pharmacies'].some(cat => triggerStr.includes(cat)) && !triggerStr.includes(categoryStr)) {
-                continue;
+                continue; // Skip this trigger for this merchant to save time and API costs
             }
         }
         
         candidateTasks.push(aiService.composeAction(merchant_id, merchantContext, trigger_id, triggerContext, now));
       }
-      if (candidateTasks.length >= 20) break;
+      if (candidateTasks.length >= 5) break;
     }
 
     const results = await Promise.all(candidateTasks);
