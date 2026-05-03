@@ -3,11 +3,11 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   res.status(200).json({
-    team_name: "Antigravity Alpha",
-    team_members: ["Antigravity"],
+    name: "Parth Sapariya",
+    team_name: "Parth Sapariya",
+    description: "AI growth assistant for merchants",
     model: "gpt-4o-mini",
-    approach: "deterministic routing with context-aware LLM composition",
-    version: "1.0.0"
+    version: "1.0"
   });
 });
 
